@@ -1,41 +1,145 @@
-# Next-UI
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# User Management Dashboard (Next.js + TypeScript + MUI)
 
-## Getting Started
+A frontend user management application built using Next.js, React, and Material UI.
+This project demonstrates clean UI design, component-based architecture, and strict TypeScript usage by implementing Create and Update operations.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Overview
+
+This project was developed as part of a fullstack developer screening task.
+The goal was to build a user table interface with add and edit functionality using a JSON data source.
+
+---
+
+## Features
+
+* Display users in a structured table (grid view)
+* Add new user via modal form
+* Edit existing user with prefilled data
+* Form validation (required fields + email validation + password validation)
+* UI updates after successful backend and database operations
+* Clean and reusable component structure
+* Type-safe implementation using TypeScript
+* Pagination in UserTable
+
+---
+
+## Tech Stack
+
+* **Framework:** Next.js
+* **Library:** React.js
+* **Language:** TypeScript (ts/tsx)
+* **UI Toolkit:** Material UI (MUI)
+
+---
+
+## Data Model
+
+```ts
+interface User {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+/components
+  ├── UserFormModal.tsx
+  ├── UserTable.tsx
+/pages
+  ├── api
+  │     └── hello.ts
+  ├── login
+  │     └── index.tsx
+  ├── _app.tsx
+  ├── _document.tsx
+  └── index.tsx
+/data
+  ├── users.json
+/types
+  ├── user.ts
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Installation & Setup
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+git clone -b dev https://github.com/loku619/Next-UI.git
+cd Next-UI
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Run locally:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+http://localhost:3000
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Functionality
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### 🔹 User Table
+
+* Displays JSON data
+* Columns: ID, First Name, Last Name, Email, Password
+
+### 🔹 Add User
+
+* "Add User" button above table
+* Opens modal dialog with form
+* Validates input fields
+* Updates data and re-renders UI
+
+### 🔹 Edit User
+
+* Edit button in each row
+* Opens modal with prefilled data
+* Updates selected user
+
+---
+
+## Validation Rules
+
+* First Name → Required
+* Last Name → Required
+* Password → Required + Minimum length 6
+* Email → Required + valid email format
+
+---
+
+## Key Concepts Demonstrated
+
+* Strict TypeScript typing (interfaces, props)
+* Controlled forms with validation
+* React Hooks (`useState`, `useEffect`)
+* Component reusability
+* Separation of UI and logic
+* State-driven UI updates
+
+---
+
+## Challenges & Learnings
+
+* Managing state updates with backend persistence
+* Reusing modal for both create and update flows
+* Maintaining clean TypeScript types across components
+* Structuring components for scalability
+
+---
+
+---
+
+## 📄 License
+
+This project is created for assessment purposes.

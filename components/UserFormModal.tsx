@@ -38,6 +38,7 @@ export default function UserFormModal({
     else setForm({ id: 0, first_name: "", last_name: "", email: "", password: "" });
   }, [user, open]);
 
+  // validate form data
   const validate = () => {
     let err: any = {};
     if (!form.first_name) err.first_name = "Required";
